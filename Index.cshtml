@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Welcome to Our Travel Website";
+}
+
+<!-- Hero Section -->
+<div class="jumbotron jumbotron-fluid text-center" style="background-image: url('https://images7.alphacoders.com/468/468539.jpg'); background-size: cover; background-position: center center; color: white;" data-aos="fade-in">
+    <div class="container">
+        <h1 class="display-4">Explore the World with Us</h1>
+        <p class="lead">Find your next adventure today. Thousands of destinations, one click away!</p>
+        <a class="btn btn-lg btn-primary" href="#" role="button">Start Your Journey</a>
+    </div>
+</div>
+
+<!-- Popular Destinations -->
+<section id="destinations" class="my-5 text-center">
+    <div class="container">
+        <h2 class="mb-4">Popular Destinations</h2>
+        <div class="row">
+            <!-- Paris -->
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card">
+                    <img src="~/images/paris.jpg" class="card-img-top" alt="Paris">
+                    <div class="card-body">
+                        <h5 class="card-title">Paris</h5>
+                        <p class="card-text">The city of lights! A must-visit destination for history, culture, and romance.</p>
+                        <a href="#" class="btn btn-primary">Discover Paris</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Tokyo -->
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card">
+                    <img src="~/images/tokyo.jpg" class="card-img-top" alt="Tokyo">
+                    <div class="card-body">
+                        <h5 class="card-title">Tokyo</h5>
+                        <p class="card-text">Where tradition meets innovation. The best of Japan in one city.</p>
+                        <a href="#" class="btn btn-primary">Discover Tokyo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- New York City -->
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                <div class="card">
+                    <img src="~/images/nyc.jpg" class="card-img-top" alt="New York City">
+                    <div class="card-body">
+                        <h5 class="card-title">New York City</h5>
+                        <p class="card-text">The Big Apple awaits! Visit the iconic Times Square, Central Park, and more.</p>
+                        <a href="#" class="btn btn-primary">Discover New York</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="bg-light py-5" data-aos="fade-up">
+    <div class="container text-center">
+        <h2 class="mb-4">Why Choose Us?</h2>
+        <p class="lead">We provide the best travel experiences, with personalized itineraries, exclusive deals, and the most beautiful destinations around the world.</p>
+        <a class="btn btn-secondary" href="#">Learn More About Us</a>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="my-5 text-center" data-aos="fade-up">
+    <div class="container">
+        <h2 class="mb-4">What Our Customers Say</h2>
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-md-4" data-aos="flip-left">
+                <div class="testimonial">
+                    <img src="https://www.lse.ac.uk/united-states/Assets/Images/People-images/Chris-Gilson-200x200.jpg" class="rounded-circle mb-3" alt="Customer 1">
+                    <p class="lead">"The best travel agency I've ever used! I had an amazing time in Paris, everything was well-organized."</p>
+                    <h5>John Doe</h5>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                <div class="testimonial">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/SPIllEff_GR_18_Fabian_Molina.jpg/800px-SPIllEff_GR_18_Fabian_Molina.jpg" class="rounded-circle mb-3" alt="Customer 2">
+                    <p class="lead">"Tokyo was a dream! Highly recommend using this service for your next trip."</p>
+                    <h5>Jane Smith</h5>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-md-4" data-aos="flip-left" data-aos-delay="400">
+                <div class="testimonial">
+                    <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" class="rounded-circle mb-3" alt="Customer 3">
+                    <p class="lead">"New York was amazing! Thank you for making it all so easy and stress-free."</p>
+                    <h5>Michael Lee</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">TravelWebsite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-primary mr-2" asp-controller="Account" asp-action="Login">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h2 class="text-center">Login</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+            <form method="post" action="/Account/Login">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <p class="mt-3 text-center">
+                    Don't have an account? <a href="/Account/SignUp">Sign Up</a>.
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">TravelWebsite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-primary mr-2" href="/Account/Login">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success" href="/Account/SignUp">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
